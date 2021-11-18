@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YelpCamp</title>
+    <title>IFindCamps</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
         integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
@@ -23,5 +23,29 @@
         integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
         crossorigin="anonymous"></script>
 </body>
+
+<script>
+    (function () {
+      'use strict'
+    
+      var forms = document.querySelectorAll('.validated-form');
+      const sendbtn = document.querySelector('.btn');
+    
+      Array.from(forms)
+        .forEach(function (form) {
+          form.addEventListener('input', function (event) {
+            if (!event.target.checkValidity()) {
+                event.target.classList.add('is-invalid');
+                sendbtn.classList.add('disabled');
+            }else{
+                event.target.classList.remove('is-invalid');
+                event.target.classList.add('is-valid');
+            } if(form.checkValidity()){
+                sendbtn.classList.remove('disabled');
+            }
+          }, false)
+        })
+    })()
+    </script>
 
 </html>
